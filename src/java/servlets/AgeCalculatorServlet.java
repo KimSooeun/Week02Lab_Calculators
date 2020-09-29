@@ -5,7 +5,6 @@ import javax.servlet.http.*;
 import javax.servlet.ServletException;
 
 /**
- *
  * @author Sooeun Kim 817949
  */
 public class AgeCalculatorServlet extends HttpServlet {
@@ -23,13 +22,12 @@ public class AgeCalculatorServlet extends HttpServlet {
         if (ageinput == null || ageinput.equals("")) {
             request.setAttribute("validInput", false);
             getServletContext().getRequestDispatcher("/WEB-INF/ageCalculator.jsp").forward(request, response);
-            return;
          } else {
             int parsedAgeInput = Integer.parseInt(ageinput);
-            parsedAgeInput = Integer.parseInt(ageinput);
             parsedAgeInput++;
+            
             request.setAttribute("validInput", true);
-            request.setAttribute("ageInput", parsedAgeInput);
+            request.setAttribute("nextAge", parsedAgeInput);
             getServletContext().getRequestDispatcher("/WEB-INF/ageCalculator.jsp").forward(request, response); 
         }
     }
